@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free legal aid clinic and pro bono lawyer matchmaking for low-income citizens">
+  <title>JusticeBridge | Free Legal Support</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="JusticeBridge home">
+      <span class="brand-mark" aria-hidden="true">⚖</span>
+      <span>Justice<span>Bridge</span></span>
+    </a>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#request">Request Help</a>
+      <a href="#eligibility">Check Eligibility</a>
+      <a href="#directory">Find Providers</a>
+      <a href="#notice">Draft a Notice</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">FREE • CONFIDENTIAL • PRIVATE</p>
+        <h1>Get legal help.<br><em>Know your options.</em></h1>
+        <p class="hero-text">Find trusted legal aid, check whether you qualify for free support, and prepare for your next step.</p>
+        <div class="hero-actions">
+          <a class="primary-button" href="#request">Start my legal request <span>→</span></a>
+          <a class="text-button" href="#eligibility">Check eligibility</a>
+        </div>
+      </div>
+      <aside class="help-card">
+        <p class="card-kicker">NEED URGENT HELP?</p>
+        <h2>Safety comes first.</h2>
+        <p>If there is immediate danger or risk of homelessness, seek urgent local support.</p>
+        <button type="button" id="urgent-button">View urgent resources</button>
+      </aside>
+    </section>
+
+    <section class="workspace">
+      <nav class="workspace-tabs" aria-label="Legal support tools">
+        <button class="tab active" data-tab="request"><span>01</span> Legal Request</button>
+        <button class="tab" data-tab="eligibility"><span>02</span> Eligibility</button>
+        <button class="tab" data-tab="directory"><span>03</span> Find Help</button>
+        <button class="tab" data-tab="notice"><span>04</span> Draft Notice</button>
+      </nav>
+
+      <section class="tool-panel active" id="request">
+        <div class="panel-heading">
+          <p class="eyebrow">LEGAL REQUEST WIZARD</p>
+          <h2>What kind of help do you need?</h2>
+          <p>Choose the category that is closest to your situation.</p>
+        </div>
+        <div class="category-grid" role="list">
+          <button class="category" data-category="Tenancy / Eviction"><strong>🏠</strong><span>Tenancy / Eviction</span></button>
+          <button class="category" data-category="Unpaid Wages"><strong>💼</strong><span>Unpaid Wages</span></button>
+          <button class="category" data-category="Domestic Violence"><strong>🛡</strong><span>Domestic Violence</span></button>
+          <button class="category" data-category="Consumer Fraud"><strong>⚠</strong><span>Consumer Fraud</span></button>
+          <button class="category" data-category="Bail Assistance"><strong>⚖</strong><span>Bail Assistance</span></button>
+          <button class="category" data-category="Other Legal Issue"><strong>＋</strong><span>Other Legal Issue</span></button>
+        </div>
+        <form class="request-form" id="request-form" hidden>
+          <div class="form-progress"><span id="progress-fill"></span></div>
+          <div class="form-step active" data-step="1">
+            <h3>Tell us a little about the issue</h3>
+            <label>Category<input id="selected-category" name="category" readonly></label>
+            <label>Briefly describe what happened<textarea name="details" required placeholder="Include dates, names, and what you want to resolve."></textarea></label>
+            <button class="next-button" type="button" data-next="2">Continue</button>
+          </div>
+          <div class="form-step" data-step="2">
+            <h3>What outcome would help?</h3>
+            <label><input type="radio" name="goal" value="Advice" required> Understand my legal options</label>
+            <label><input type="radio" name="goal" value="Representation"> Find someone to represent me</label>
+            <label><input type="radio" name="goal" value="Document"> Draft or review a document</label>
+            <button class="back-button" type="button" data-back="1">Back</button>
+            <button class="next-button" type="button" data-next="3">Continue</button>
+          </div>
+          <div class="form-step" data-step="3">
+            <h3>Where can a provider reach you?</h3>
+            <label>Your name<input name="name" required></label>
+            <label>Email or phone<input name="contact" required></label>
+            <label>City or ZIP code<input name="location" required></label>
+            <button class="back-button" type="button" data-back="2">Back</button>
+            <button class="submit-button" type="submit">Submit request</button>
+          </div>
+        </form>
+        <div class="success-message" id="request-success" hidden>
+          <span>✓</span><h3>Request prepared</h3><p>This demo does not send data. In a live service, your request would be securely sent to available providers.</p>
+        </div>
+      </section>
+
+      <section class="tool-panel" id="eligibility">
+        <div class="panel-heading">
+          <p class="eyebrow">INCOME ELIGIBILITY SCREEN</p>
+          <h2>Could you qualify for free legal aid?</h2>
+        </div>
+        <form class="eligibility-form" id="eligibility-form">
+          <label>Household size<select id="household-size" required><option value="">Select</option><option value="1">1 person</option><option value="2">2 people</option><option value="3">3 people</option><option value="4">4 people</option><option value="5">5 people</option><option value="6">6+ people</option></select></label>
+          <label>Monthly household income ($)<input id="monthly-income" type="number" min="0" required placeholder="e.g. 1800"></label>
+          <label>Do you receive public benefits?<select id="benefits"><option>No</option><option>Yes</option></select></label>
+          <button type="submit">Check eligibility</button>
+        </form>
+        <div class="eligibility-result" id="eligibility-result" hidden></div>
+      </section>
+
+      <section class="tool-panel" id="directory">
+        <div class="panel-heading">
+          <p class="eyebrow">PROVIDER DIRECTORY</p>
+          <h2>Find a clinic or pro bono lawyer</h2>
+        </div>
+        <div class="directory-controls">
+          <input id="provider-search" type="search" placeholder="Search issue or location">
+          <select id="provider-type"><option value="All">All providers</option><option value="Clinic">Legal clinic</option><option value="Lawyer">Pro bono lawyer</option></select>
+        </div>
+        <div class="provider-grid" id="provider-grid">
+          <article class="provider" data-type="Clinic" data-search="housing eviction tenancy"><div class="provider-icon">HC</div><span class="provider-badge">Clinic</span><h3>Housing Justice Clinic</h3><p>Tenancy, eviction defense, and landlord disputes.</p><button class="schedule-button" data-provider="Housing Justice Clinic">Check appointment times</button></article>
+          <article class="provider" data-type="Lawyer" data-search="wages employment"><div class="provider-icon">WL</div><span class="provider-badge lawyer">Pro bono</span><h3>Workers' Rights Legal Team</h3><p>Unpaid wages and employment protections.</p><button class="schedule-button" data-provider="Workers' Rights Legal Team">Check appointment times</button></article>
+          <article class="provider" data-type="Clinic" data-search="family violence domestic"><div class="provider-icon">SF</div><span class="provider-badge">Clinic</span><h3>Safety & Family Law Center</h3><p>Protective orders and family safety planning.</p><button class="schedule-button" data-provider="Safety & Family Law Center">Check appointment times</button></article>
+          <article class="provider" data-type="Lawyer" data-search="consumer fraud debt"><div class="provider-icon">CF</div><span class="provider-badge lawyer">Pro bono</span><h3>Consumer Protection Network</h3><p>Fraud, scams, debt collection, and consumer disputes.</p><button class="schedule-button" data-provider="Consumer Protection Network">Check appointment times</button></article>
+        </div>
+        <div class="scheduler" id="scheduler" hidden>
+          <h3 id="scheduler-title">Schedule a consultation</h3>
+          <div class="time-grid"><button>Mon 10:00 AM</button><button>Tue 2:30 PM</button><button>Wed 11:00 AM</button><button>Thu 4:00 PM</button></div>
+          <button class="schedule-confirm" id="schedule-confirm" disabled>Confirm appointment</button>
+        </div>
+      </section>
+
+      <section class="tool-panel" id="notice">
+        <div class="panel-heading">
+          <p class="eyebrow">BASIC LEGAL NOTICE GENERATOR</p>
+          <h2>Prepare a structured demand notice</h2>
+          <p>This is a drafting aid, not legal advice.</p>
+        </div>
+        <form class="notice-form" id="notice-form">
+          <label>Notice type<select id="notice-type" required><option value="">Choose a notice</option><option>Demand for unpaid wages</option><option>Eviction dispute response</option><option>Consumer refund request</option><option>Cease and desist</option></select></label>
+          <label>Your name<input id="sender-name" required></label>
+          <label>Recipient name / organization<input id="recipient-name" required></label>
+          <label>Incident description<textarea id="incident-description" required placeholder="Describe relevant facts, dates, and events."></textarea></label>
+          <label>Demand or resolution sought<textarea id="demand" required placeholder="Describe exactly what you want the recipient to do."></textarea></label>
+          <button type="submit">Generate notice</button>
+        </form>
+        <div class="notice-output" id="notice-output" hidden>
+          <div class="output-actions"><h3>Your draft</h3><button type="button" id="copy-notice">Copy text</button></div>
+          <pre id="notice-text"></pre>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#"><span class="brand-mark" aria-hidden="true">⚖</span><span>Justice<span>Bridge</span></span></a>
+    <p>Free legal support referrals. No attorney-client relationship is created.</p>
+  </footer>
+
+  <dialog id="urgent-dialog">
+    <button class="dialog-close" type="button" aria-label="Close">×</button>
+    <p class="eyebrow">URGENT RESOURCES</p>
+    <h2>Choose the right support</h2>
+    <ul><li><strong>Immediate danger:</strong> call your local emergency number.</li><li><strong>Domestic violence:</strong> contact a local domestic violence shelter or crisis line.</li><li><strong>Eviction deadline:</strong> contact a legal aid office immediately.</li></ul>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
