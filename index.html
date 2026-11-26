@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find free legal clinics and pro bono lawyers for low-income citizens.">
+  <title>JusticeLink | Free Legal Help</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="JusticeLink home">
+      <span class="brand-mark" aria-hidden="true">⚖</span>
+      <span>Justice<span>Link</span></span>
+    </a>
+
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#find-help">Find Help</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#resources">Resources</a>
+      <a href="#about">About</a>
+      <a class="nav-button" href="#match">Get Matched</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="find-help">
+      <div class="hero-content">
+        <p class="eyebrow">FREE & CONFIDENTIAL LEGAL SUPPORT</p>
+        <h1>Justice should be<br>accessible to <em>everyone.</em></h1>
+        <p class="hero-text">Connect with trusted legal aid clinics and pro bono lawyers in your area—at no cost to you.</p>
+
+        <form class="search-panel" id="search-form">
+          <label>
+            <span>What do you need help with?</span>
+            <select id="legal-issue">
+              <option value="">Select a legal issue</option>
+              <option value="Housing">Housing & eviction</option>
+              <option value="Family">Family law</option>
+              <option value="Employment">Employment</option>
+              <option value="Immigration">Immigration</option>
+              <option value="Benefits">Public benefits</option>
+              <option value="Consumer">Consumer & debt</option>
+            </select>
+          </label>
+          <label>
+            <span>Your location</span>
+            <input id="location" type="text" placeholder="City or ZIP code">
+          </label>
+          <button type="submit">Find Help <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p class="privacy">🔒 Your information stays private and secure</p>
+      </div>
+
+      <div class="hero-art" aria-label="Illustration of people receiving legal assistance">
+        <div class="arch">
+          <div class="quote-card">
+            <span class="quote-mark">“</span>
+            <p>Everyone deserves a fair chance.</p>
+          </div>
+          <div class="person person-one"><div class="head"></div><div class="body"></div></div>
+          <div class="person person-two"><div class="head"></div><div class="body"></div></div>
+          <div class="person person-three"><div class="head"></div><div class="body"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="help-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <h2>Get the help you need in 3 steps</h2>
+      </div>
+
+      <div class="steps">
+        <article>
+          <span class="step-number">01</span>
+          <div class="step-icon">⌕</div>
+          <h3>Tell us your situation</h3>
+          <p>Choose your legal issue and share your location securely.</p>
+        </article>
+        <article>
+          <span class="step-number">02</span>
+          <div class="step-icon">↔</div>
+          <h3>Find a match</h3>
+          <p>We connect you with qualified clinics or attorneys near you.</p>
+        </article>
+        <article>
+          <span class="step-number">03</span>
+          <div class="step-icon">✓</div>
+          <h3>Get support</h3>
+          <p>Schedule a consultation and take your next step with confidence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="results-section" id="resources">
+      <div class="section-heading left-heading">
+        <p class="eyebrow">AVAILABLE SUPPORT</p>
+        <h2>Organizations ready to help</h2>
+      </div>
+
+      <div class="filters" aria-label="Filter organizations">
+        <button class="filter active" data-filter="All">All support</button>
+        <button class="filter" data-filter="Clinic">Legal clinics</button>
+        <button class="filter" data-filter="Lawyer">Pro bono lawyers</button>
+      </div>
+
+      <div class="cards" id="cards">
+        <article class="card" data-type="Clinic" data-issue="Housing Family Benefits">
+          <div class="card-icon">H</div>
+          <div>
+            <span class="badge">Legal clinic</span>
+            <h3>Community Justice Center</h3>
+            <p>Housing, family law, and benefits assistance.</p>
+            <p class="distance">● Available nearby</p>
+          </div>
+        </article>
+        <article class="card" data-type="Lawyer" data-issue="Employment Consumer">
+          <div class="card-icon">W</div>
+          <div>
+            <span class="badge lawyer-badge">Pro bono lawyer</span>
+            <h3>Workers & Consumers Alliance</h3>
+            <p>Employment disputes and consumer debt guidance.</p>
+            <p class="distance">● 12 miles away</p>
+          </div>
+        </article>
+        <article class="card" data-type="Clinic" data-issue="Immigration Family">
+          <div class="card-icon">I</div>
+          <div>
+            <span class="badge">Legal clinic</span>
+            <h3>Open Doors Legal Aid</h3>
+            <p>Immigration, family, and emergency legal support.</p>
+            <p class="distance">● 5 miles away</p>
+          </div>
+        </article>
+      </div>
+      <p class="no-results" id="no-results" hidden>No matching organizations are available for this search.</p>
+    </section>
+
+    <section class="cta" id="match">
+      <div>
+        <p class="eyebrow light">TAKE THE FIRST STEP</p>
+        <h2>You don’t have to face this alone.</h2>
+      </div>
+      <button id="match-button" type="button">Request a Free Match <span aria-hidden="true">→</span></button>
+    </section>
+  </main>
+
+  <footer id="about">
+    <a class="brand footer-brand" href="#">
+      <span class="brand-mark" aria-hidden="true">⚖</span>
+      <span>Justice<span>Link</span></span>
+    </a>
+    <p>Connecting people with free legal support.</p>
+    <p class="footer-disclaimer">This website provides referrals only and does not provide legal advice.</p>
+  </footer>
+
+  <dialog id="match-dialog">
+    <button class="dialog-close" type="button" aria-label="Close dialog">×</button>
+    <p class="eyebrow">FREE CONFIDENTIAL MATCH</p>
+    <h2>Tell us how we can help</h2>
+    <form id="match-form">
+      <label>Name<input name="name" type="text" required></label>
+      <label>Email<input name="email" type="email" required></label>
+      <label>Legal issue
+        <select name="issue" required>
+          <option value="">Choose one</option>
+          <option>Housing & eviction</option>
+          <option>Family law</option>
+          <option>Employment</option>
+          <option>Immigration</option>
+          <option>Public benefits</option>
+          <option>Consumer & debt</option>
+        </select>
+      </label>
+      <button type="submit">Submit Request</button>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
